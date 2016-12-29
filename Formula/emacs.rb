@@ -5,6 +5,13 @@ class Emacs < Formula
   mirror "https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
   sha256 "19f2798ee3bc26c95dca3303e7ab141e7ad65d6ea2b6945eeba4dbea7df48f33"
 
+  patch do
+    url "https://raw.githubusercontent.com/suzuki/emacs-inline-patch/master/emacs-inline.patch"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  
   bottle do
     rebuild 4
     sha256 "c80ef281b85fb8a8bd65a84676056ea41d7bb2954d5c82193eef2acea2ade856" => :sierra
