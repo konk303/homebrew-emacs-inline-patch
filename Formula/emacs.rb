@@ -4,6 +4,15 @@ class Emacs < Formula
   url "https://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
   sha256 "253ac5e7075e594549b83fd9ec116a9dc37294d415e2f21f8ee109829307c00b"
 
+  # Adding inline-patch
+  # https://qiita.com/takaxp/items/e07bb286d80fa9dd8e05
+  # http://cortyuming.hateblo.jp/entry/2017/08/17/112020
+  patch :p1 do
+    url "https://gist.githubusercontent.com/takaxp/3314a153f6d02d82ef1833638d338ecf/raw/156aaa50dc028ebb731521abaf423e751fd080de/emacs-25.2-inline.patch"
+  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   bottle do
     sha256 "d5ce62eb55d64830264873a363a99f3de58c35c0bd1602cb7fd0bc37137b0c9d" => :high_sierra
     sha256 "4d7ff7f96c9812a9f58cd45796aef789a1b5d26c58e3e68ecf520fab34af524d" => :sierra
