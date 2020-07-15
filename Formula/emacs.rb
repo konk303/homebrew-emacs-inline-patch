@@ -21,6 +21,15 @@ class Emacs < Formula
     depends_on "texinfo" => :build
   end
 
+  # Patch from
+  # https://qiita.com/takaxp/items/e07bb286d80fa9dd8e05
+  patch :p1 do
+    url "https://gist.githubusercontent.com/takaxp/3314a153f6d02d82ef1833638d338ecf/raw/156aaa50dc028ebb731521abaf423e751fd080de/emacs-25.2-inline.patch"
+  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "texinfo" => :build
+
   depends_on "pkg-config" => :build
   depends_on "gnutls"
 
